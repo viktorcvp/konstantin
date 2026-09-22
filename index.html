@@ -1,326 +1,490 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Погрузки, разгрузки, вынос мусора и подъём материала. Работаем по Минску и области. Приезжаем в течение часа. Точная цена до начала работ.">
-    <meta name="keywords" content="грузчики, погрузка, разгрузка, вынос мусора, подъём материала, такелаж, Минск">
-    <meta name="author" content="Константин">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Погрузки, разгрузки, вынос мусора и подъём материала. Работаем по Минску и области. Приезжаем в течение часа. Точная цена до начала работ.">
+<meta name="keywords" content="грузчики, погрузка, разгрузка, вынос мусора, подъём материала, такелаж, Минск">
+<title>Грузчики — погрузка, разгрузка, вынос мусора</title>
+<style>
+:root{
+  --bg:#fff;--bg-alt:#f4f6fa;--text:#1a2233;--muted:#5b6478;--border:#e3e7ef;
+  --primary:#1a3a6b;--primary-dark:#0f2444;--accent:#f59e0b;--accent-dark:#d97706;
+  --radius:14px;--shadow:0 6px 24px rgba(26,58,107,.08);
+  --shadow-lg:0 16px 48px rgba(26,58,107,.14);--t:.22s ease;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+.accent{color:var(--accent)}
 
-    <meta property="og:title" content="Грузчики — погрузка, разгрузка, вынос мусора">
-    <meta property="og:description" content="Быстро, аккуратно, без повреждений. Работаем по городу и области.">
-    <meta property="og:type" content="website">
+/* buttons */
+.btn{display:inline-block;padding:15px 28px;border-radius:50px;font-weight:600;font-size:15px;
+  cursor:pointer;border:2px solid transparent;transition:var(--t);text-align:center;white-space:nowrap;font-family:inherit}
+.btn--primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(245,158,11,.3)}
+.btn--primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 12px 28px rgba(245,158,11,.4)}
+.btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn--full{width:100%}
 
-    <title>Грузчики — погрузка, разгрузка, вынос мусора</title>
+/* header */
+.header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);z-index:100}
+.header__inner{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:20px}
+.header__logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+.logo-mark{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+  background:var(--primary);color:#fff;border-radius:9px;font-weight:800}
+.logo-accent{color:var(--accent)}
+.nav{display:none;gap:26px;align-items:center}
+.nav a{font-size:15px;color:var(--muted);font-weight:500;transition:var(--t)}
+.nav a:hover{color:var(--primary)}
+.nav__cta{background:var(--primary);color:#fff !important;padding:10px 20px;border-radius:50px;font-weight:600}
+.nav__cta:hover{background:var(--primary-dark)}
+.header__phone{display:none;font-weight:700;color:var(--primary);font-size:15px}
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:var(--t)}
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+/* hero */
+.hero{padding:50px 0 70px;background:linear-gradient(160deg,#0f2444 0%,#1a3a6b 55%,#24508f 100%);
+  color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-120px;right:-120px;width:480px;height:480px;
+  background:radial-gradient(circle,rgba(245,158,11,.22),transparent 60%);border-radius:50%;pointer-events:none}
+.hero__inner{display:grid;gap:40px;align-items:center;position:relative;z-index:1}
+.hero__badge{display:inline-block;padding:8px 16px;background:rgba(245,158,11,.15);
+  border:1px solid rgba(245,158,11,.4);color:var(--accent);border-radius:50px;
+  font-size:13px;font-weight:600;margin-bottom:22px}
+.hero h1{font-size:32px;line-height:1.15;margin-bottom:20px;font-weight:800;letter-spacing:-.5px}
+.hero p{font-size:17px;color:rgba(255,255,255,.82);margin-bottom:32px;max-width:520px}
+.hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:40px}
+.hero__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;
+  padding-top:28px;border-top:1px solid rgba(255,255,255,.15)}
+.hero__facts li{display:flex;flex-direction:column;gap:4px}
+.hero__facts strong{font-size:17px;font-weight:700;color:#fff}
+.hero__facts span{font-size:13px;color:rgba(255,255,255,.6)}
+.hero__photo{width:100%;max-width:460px;margin:0 auto;aspect-ratio:4/3;border-radius:20px;
+  background:linear-gradient(135deg,rgba(245,158,11,.3),rgba(36,80,143,.4)),
+  repeating-linear-gradient(45deg,#1e4784 0,#1e4784 20px,#235091 20px,#235091 40px);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.hero__photo::after{content:"Фото работ";position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;color:rgba(255,255,255,.55);font-weight:600;font-size:14px;
+  letter-spacing:1px;text-transform:uppercase}
+
+/* sections */
+.section{padding:60px 0}
+.section--alt{background:var(--bg-alt)}
+.section__title{font-size:28px;text-align:center;margin-bottom:14px;font-weight:800;letter-spacing:-.3px}
+.section__subtitle{text-align:center;color:var(--muted);margin-bottom:44px;max-width:620px;
+  margin-left:auto;margin-right:auto;font-size:16px}
+
+/* cards */
+.cards{display:grid;gap:20px}
+.card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);
+  transition:var(--t);border:1px solid var(--border)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.card__icon{font-size:28px;margin-bottom:16px}
+.card__title{font-size:19px;margin-bottom:8px;font-weight:700;color:var(--primary)}
+.card__text{color:var(--muted);font-size:15px}
+
+/* steps */
+.steps{list-style:none;display:grid;gap:20px}
+.step{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.step__num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+  border-radius:12px;background:var(--primary);color:#fff;font-weight:800;font-size:18px;margin-bottom:16px}
+.step__title{font-size:18px;margin-bottom:8px;font-weight:700}
+.step__text{color:var(--muted);font-size:15px}
+
+/* prices */
+.price-grid{display:grid;gap:16px;margin-bottom:24px}
+.price-card{background:#fff;border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow);
+  border:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+.price-card--accent{background:var(--primary);color:#fff;border-color:transparent}
+.price-card--accent .price-card__label{color:rgba(255,255,255,.75)}
+.price-card__label{font-size:14px;color:var(--muted)}
+.price-card__value{font-size:22px;font-weight:800;color:var(--accent)}
+.price-note{text-align:center;color:var(--muted);font-size:15px;max-width:620px;margin:0 auto;
+  padding:20px;background:rgba(245,158,11,.08);border-radius:var(--radius);
+  border:1px solid rgba(245,158,11,.25)}
+
+/* area */
+.area{display:grid;gap:32px;align-items:center}
+.area__list{list-style:none;display:grid;gap:12px}
+.area__list li{padding-left:30px;position:relative;font-size:16px}
+.area__list li::before{content:"📍";position:absolute;left:0;font-size:16px}
+.area__note{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);
+  border:1px solid var(--border);text-align:center}
+.area__note strong{display:block;font-size:17px;margin-bottom:6px}
+.area__note p{color:var(--muted);margin-bottom:18px;font-size:15px}
+
+/* reviews */
+.reviews{display:grid;gap:20px}
+.review{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);
+  border-left:4px solid var(--accent)}
+.review p{color:var(--text);margin-bottom:16px;font-size:15px;line-height:1.65}
+.review footer{color:var(--muted);font-size:14px;font-weight:600}
+
+/* benefits */
+.benefits{display:grid;gap:20px}
+.benefit{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);
+  border:1px solid var(--border)}
+.benefit__icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+  border-radius:50%;background:rgba(245,158,11,.15);color:var(--accent-dark);
+  font-weight:800;font-size:16px;margin-bottom:14px}
+.benefit h3{font-size:16px;margin-bottom:6px;font-weight:700}
+.benefit p{color:var(--muted);font-size:14px}
+
+/* form */
+.form{max-width:720px;margin:0 auto 48px;background:#fff;border-radius:var(--radius);padding:32px;
+  box-shadow:var(--shadow);border:1px solid var(--border)}
+.form__row{display:grid;gap:20px;margin-bottom:20px}
+.form label{display:block}
+.form label span{display:block;font-size:14px;font-weight:600;margin-bottom:8px;color:var(--text)}
+.form input,.form textarea,.form select{width:100%;padding:14px 16px;border:1.5px solid var(--border);
+  border-radius:10px;font-family:inherit;font-size:15px;color:var(--text);background:var(--bg-alt);transition:var(--t)}
+.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--accent);
+  background:#fff;box-shadow:0 0 0 3px rgba(245,158,11,.15)}
+.form textarea{resize:vertical;margin-bottom:20px}
+.form__check{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;font-size:14px;color:var(--muted);cursor:pointer;line-height:1.5}
+.form__check input{width:auto;margin-top:3px;flex-shrink:0;cursor:pointer}
+.form__check a{color:var(--accent-dark);text-decoration:underline;font-weight:500}
+.form__note{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
+
+/* contacts */
+.contacts{display:grid;gap:16px;max-width:720px;margin:0 auto}
+.contacts__item{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;
+  background:#fff;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);transition:var(--t)}
+.contacts__item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.contacts__label{font-size:14px;color:var(--muted);font-weight:500}
+.contacts__value{font-weight:700;color:var(--primary);font-size:16px}
+
+/* footer */
+.footer{background:var(--primary-dark);color:rgba(255,255,255,.7);padding:32px 0;text-align:center;font-size:14px}
+.footer__inner p+p{margin-top:6px}
+.footer a{color:rgba(255,255,255,.7);text-decoration:underline;cursor:pointer}
+.footer a:hover{color:var(--accent)}
+
+/* modal */
+.modal{display:none;position:fixed;inset:0;background:rgba(15,36,68,.7);z-index:200;
+  align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal--open{display:flex}
+.modal__content{background:#fff;border-radius:var(--radius);max-width:720px;width:100%;
+  max-height:85vh;overflow-y:auto;padding:36px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.modal__close{position:absolute;top:16px;right:20px;background:none;border:none;
+  font-size:28px;cursor:pointer;color:var(--muted);line-height:1;padding:4px 10px}
+.modal__close:hover{color:var(--text)}
+.modal h2{font-size:22px;margin-bottom:18px;color:var(--primary);font-weight:800}
+.modal h3{font-size:17px;margin:22px 0 8px;font-weight:700;color:var(--text)}
+.modal p{color:var(--muted);font-size:15px;margin-bottom:12px}
+.modal ul{padding-left:22px;margin-bottom:12px;color:var(--muted);font-size:15px}
+.modal li{margin-bottom:6px}
+
+/* nav mobile open */
+.nav--open{display:flex !important;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+  background:#fff;padding:24px;gap:16px;border-bottom:1px solid var(--border);
+  box-shadow:0 12px 32px rgba(26,58,107,.12)}
+
+/* responsive */
+@media(min-width:640px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .price-grid{grid-template-columns:repeat(2,1fr)}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .form__row{grid-template-columns:1fr 1fr}
+  .contacts{grid-template-columns:repeat(3,1fr)}
+  .contacts__item{flex-direction:column;align-items:flex-start;gap:6px}
+}
+@media(min-width:768px){
+  .hero{padding:80px 0 100px}
+  .hero__inner{grid-template-columns:1.15fr 1fr;gap:60px}
+  .hero h1{font-size:42px}
+  .section{padding:80px 0}
+  .section__title{font-size:34px}
+  .area{grid-template-columns:1.2fr 1fr;gap:60px}
+  .reviews{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1024px){
+  .nav{display:flex}
+  .header__phone{display:block}
+  .burger{display:none}
+  .hero h1{font-size:48px}
+  .section__title{font-size:38px}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .price-grid{grid-template-columns:repeat(3,1fr)}
+  .benefits{grid-template-columns:repeat(3,1fr)}
+  .reviews{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(4,1fr)}
+}
+</style>
 </head>
 <body>
 
-<!-- ШАПКА -->
 <header class="header">
-    <div class="container header__inner">
-        <a href="#" class="header__logo">
-            <span class="logo-mark">Г</span>
-            <span>Грузчики<span class="logo-accent">.</span>by</span>
-        </a>
-        <nav class="nav" id="nav">
-            <a href="#services">Услуги</a>
-            <a href="#how">Как работаем</a>
-            <a href="#prices">Цены</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#contact" class="nav__cta">Заказать</a>
-        </nav>
-        <a href="tel:+375000000000" class="header__phone">+375 (00) 000-00-00</a>
-        <button class="burger" id="burger" aria-label="Меню">
-            <span></span><span></span><span></span>
-        </button>
-    </div>
+  <div class="container header__inner">
+    <a href="#" class="header__logo">
+      <span class="logo-mark">Г</span>
+      <span>Грузчики<span class="logo-accent">.</span>by</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#how">Как работаем</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contact" class="nav__cta">Заказать</a>
+    </nav>
+    <a href="tel:+375000000000" class="header__phone">+375 (00) 000-00-00</a>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
 </header>
 
 <main>
 
-    <!-- ГЛАВНЫЙ ЭКРАН -->
-    <section class="hero">
-        <div class="container hero__inner">
-            <div class="hero__text">
-                <div class="hero__badge">Работаем по Минску и области</div>
-                <h1>Погрузки, разгрузки, вынос мусора — <span class="accent">быстро и аккуратно</span></h1>
-                <p>Приезжаем в течение часа. Свой инструмент и упаковка. Точную цену называем до начала работ — никаких доплат на месте.</p>
-                <div class="hero__actions">
-                    <a href="#contact" class="btn btn--primary">Заказать грузчиков</a>
-                    <a href="tel:+375000000000" class="btn btn--ghost">Позвонить</a>
-                </div>
-                <ul class="hero__facts">
-                    <li><strong>2–4 ч</strong><span>средняя задача</span></li>
-                    <li><strong>с 8:00 до 22:00</strong><span>без выходных</span></li>
-                    <li><strong>0 повреждений</strong><span>аккуратно упакуем</span></li>
-                </ul>
-            </div>
-            <div class="hero__image" aria-hidden="true">
-                <div class="hero__photo"></div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <div class="hero__badge">Работаем по Минску и области</div>
+      <h1>Погрузки, разгрузки, вынос мусора — <span class="accent">быстро и аккуратно</span></h1>
+      <p>Приезжаем в течение часа. Свой инструмент и упаковка. Точную цену называем до начала работ — никаких доплат на месте.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary">Заказать грузчиков</a>
+        <a href="tel:+375000000000" class="btn btn--ghost">Позвонить</a>
+      </div>
+      <ul class="hero__facts">
+        <li><strong>2–4 ч</strong><span>средняя задача</span></li>
+        <li><strong>с 8:00 до 22:00</strong><span>без выходных</span></li>
+        <li><strong>0 повреждений</strong><span>аккуратно упакуем</span></li>
+      </ul>
+    </div>
+    <div class="hero__image"><div class="hero__photo"></div></div>
+  </div>
+</section>
 
-    <!-- УСЛУГИ -->
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section__title">Услуги</h2>
-            <p class="section__subtitle">Работаем с физлицами и компаниями. Разово и по договору.</p>
-            <div class="cards">
-                <article class="card">
-                    <div class="card__icon">📦</div>
-                    <h3 class="card__title">Погрузка</h3>
-                    <p class="card__text">Квартиры, офисы, склады, магазины. Аккуратно упакуем и поднимем.</p>
-                </article>
-                <article class="card">
-                    <div class="card__icon">🚚</div>
-                    <h3 class="card__title">Разгрузка</h3>
-                    <p class="card__text">Фуры, контейнеры, газели. Быстро, без простоев машины.</p>
-                </article>
-                <article class="card">
-                    <div class="card__icon">🗑️</div>
-                    <h3 class="card__title">Вынос мусора</h3>
-                    <p class="card__text">После ремонта, переезда, стройки. С вывозом на свалку.</p>
-                </article>
-                <article class="card">
-                    <div class="card__icon">⬆️</div>
-                    <h3 class="card__title">Подъём материала</h3>
-                    <p class="card__text">На этаж, в квартиру, в офис. Мебель, стройматериалы, техника.</p>
-                </article>
-                <article class="card">
-                    <div class="card__icon">🏠</div>
-                    <h3 class="card__title">Переезды</h3>
-                    <p class="card__text">Квартирные и офисные. Полный цикл: упаковать, перевезти, расставить.</p>
-                </article>
-                <article class="card">
-                    <div class="card__icon">🏗️</div>
-                    <h3 class="card__title">Такелаж</h3>
-                    <p class="card__text">Тяжёлые и негабаритные предметы: пианино, сейфы, станки.</p>
-                </article>
-            </div>
-        </div>
-    </section>
+<section id="services" class="section">
+  <div class="container">
+    <h2 class="section__title">Услуги</h2>
+    <p class="section__subtitle">Работаем с физлицами и компаниями. Разово и по договору.</p>
+    <div class="cards">
+      <article class="card"><div class="card__icon">📦</div><h3 class="card__title">Погрузка</h3><p class="card__text">Квартиры, офисы, склады, магазины. Аккуратно упакуем и поднимем.</p></article>
+      <article class="card"><div class="card__icon">🚚</div><h3 class="card__title">Разгрузка</h3><p class="card__text">Фуры, контейнеры, газели. Быстро, без простоев машины.</p></article>
+      <article class="card"><div class="card__icon">🗑️</div><h3 class="card__title">Вынос мусора</h3><p class="card__text">После ремонта, переезда, стройки. С вывозом на свалку.</p></article>
+      <article class="card"><div class="card__icon">⬆️</div><h3 class="card__title">Подъём материала</h3><p class="card__text">На этаж, в квартиру, в офис. Мебель, стройматериалы, техника.</p></article>
+      <article class="card"><div class="card__icon">🏠</div><h3 class="card__title">Переезды</h3><p class="card__text">Квартирные и офисные. Полный цикл: упаковать, перевезти, расставить.</p></article>
+      <article class="card"><div class="card__icon">🏗️</div><h3 class="card__title">Такелаж</h3><p class="card__text">Тяжёлые и негабаритные предметы: пианино, сейфы, станки.</p></article>
+    </div>
+  </div>
+</section>
 
-    <!-- КАК РАБОТАЕМ -->
-    <section id="how" class="section section--alt">
-        <div class="container">
-            <h2 class="section__title">Как работаем</h2>
-            <p class="section__subtitle">Четыре простых шага — от заявки до уборки после работ</p>
-            <ol class="steps">
-                <li class="step">
-                    <span class="step__num">1</span>
-                    <h3 class="step__title">Заявка</h3>
-                    <p class="step__text">Звонок или форма на сайте. Обсуждаем задачу, адрес, время.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">2</span>
-                    <h3 class="step__title">Расчёт</h3>
-                    <p class="step__text">Называем цену сразу, без сюрпризов. Согласовываем дату и время.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">3</span>
-                    <h3 class="step__title">Приезд</h3>
-                    <p class="step__text">В оговорённое время, со своим инструментом и упаковкой.</p>
-                </li>
-                <li class="step">
-                    <span class="step__num">4</span>
-                    <h3 class="step__title">Работа</h3>
-                    <p class="step__text">Аккуратно, быстро, с уборкой за собой. Принимаете работу — оплачиваете.</p>
-                </li>
-            </ol>
-        </div>
-    </section>
+<section id="how" class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Как работаем</h2>
+    <p class="section__subtitle">Четыре простых шага — от заявки до уборки после работ</p>
+    <ol class="steps">
+      <li class="step"><span class="step__num">1</span><h3 class="step__title">Заявка</h3><p class="step__text">Звонок или форма на сайте. Обсуждаем задачу, адрес, время.</p></li>
+      <li class="step"><span class="step__num">2</span><h3 class="step__title">Расчёт</h3><p class="step__text">Называем цену сразу, без сюрпризов. Согласовываем дату и время.</p></li>
+      <li class="step"><span class="step__num">3</span><h3 class="step__title">Приезд</h3><p class="step__text">В оговорённое время, со своим инструментом и упаковкой.</p></li>
+      <li class="step"><span class="step__num">4</span><h3 class="step__title">Работа</h3><p class="step__text">Аккуратно, быстро, с уборкой за собой. Принимаете работу — оплачиваете.</p></li>
+    </ol>
+  </div>
+</section>
 
-    <!-- ЦЕНЫ -->
-    <section id="prices" class="section">
-        <div class="container">
-            <h2 class="section__title">Цены</h2>
-            <p class="section__subtitle">Прозрачно. Точную стоимость называем до начала работ.</p>
-            <div class="price-grid">
-                <div class="price-card">
-                    <div class="price-card__label">Час работы одного грузчика</div>
-                    <div class="price-card__value">от 25 BYN</div>
-                </div>
-                <div class="price-card">
-                    <div class="price-card__label">Минимальный заказ</div>
-                    <div class="price-card__value">2 часа</div>
-                </div>
-                <div class="price-card">
-                    <div class="price-card__label">Вынос мусора</div>
-                    <div class="price-card__value">от 30 BYN / м³</div>
-                </div>
-                <div class="price-card">
-                    <div class="price-card__label">Подъём на этаж</div>
-                    <div class="price-card__value">от 5 BYN / этаж</div>
-                </div>
-                <div class="price-card">
-                    <div class="price-card__label">Выезд за город</div>
-                    <div class="price-card__value">1 BYN / км</div>
-                </div>
-                <div class="price-card price-card--accent">
-                    <div class="price-card__label">Работа с юрлицами</div>
-                    <div class="price-card__value">по договору</div>
-                </div>
-            </div>
-            <p class="price-note">Наценок «за сложность» на месте не делаем. Всё, что обсудили — по той цене и работаем.</p>
-        </div>
-    </section>
+<section id="prices" class="section">
+  <div class="container">
+    <h2 class="section__title">Цены</h2>
+    <p class="section__subtitle">Прозрачно. Точную стоимость называем до начала работ.</p>
+    <div class="price-grid">
+      <div class="price-card"><div class="price-card__label">Час работы одного грузчика</div><div class="price-card__value">от 25 BYN</div></div>
+      <div class="price-card"><div class="price-card__label">Минимальный заказ</div><div class="price-card__value">2 часа</div></div>
+      <div class="price-card"><div class="price-card__label">Вынос мусора</div><div class="price-card__value">от 30 BYN / м³</div></div>
+      <div class="price-card"><div class="price-card__label">Подъём на этаж</div><div class="price-card__value">от 5 BYN / этаж</div></div>
+      <div class="price-card"><div class="price-card__label">Выезд за город</div><div class="price-card__value">1 BYN / км</div></div>
+      <div class="price-card price-card--accent"><div class="price-card__label">Работа с юрлицами</div><div class="price-card__value">по договору</div></div>
+    </div>
+    <p class="price-note">Наценок «за сложность» на месте не делаем. Всё, что обсудили — по той цене и работаем.</p>
+  </div>
+</section>
 
-    <!-- ЗОНА РАБОТЫ -->
-    <section class="section section--alt">
-        <div class="container">
-            <h2 class="section__title">Зона работы</h2>
-            <p class="section__subtitle">Выезжаем по городу и в радиусе 50 км от него</p>
-            <div class="area">
-                <ul class="area__list">
-                    <li>Минск — все районы</li>
-                    <li>Боровляны, Колодищи, Смолевичи</li>
-                    <li>Фаниполь, Дзержинск, Столбцы</li>
-                    <li>Логойск, Смолевичский район</li>
-                    <li>Заславль, Ратомка, Ждановичи</li>
-                    <li>Дальше — по договорённости</li>
-                </ul>
-                <div class="area__note">
-                    <strong>Не уверены, работаем ли в вашем районе?</strong>
-                    <p>Позвоните — ответим сразу.</p>
-                    <a href="tel:+375000000000" class="btn btn--primary">+375 (00) 000-00-00</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Зона работы</h2>
+    <p class="section__subtitle">Выезжаем по городу и в радиусе 50 км от него</p>
+    <div class="area">
+      <ul class="area__list">
+        <li>Минск — все районы</li>
+        <li>Боровляны, Колодищи, Смолевичи</li>
+        <li>Фаниполь, Дзержинск, Столбцы</li>
+        <li>Логойск, Смолевичский район</li>
+        <li>Заславль, Ратомка, Ждановичи</li>
+        <li>Дальше — по договорённости</li>
+      </ul>
+      <div class="area__note">
+        <strong>Не уверены, работаем ли в вашем районе?</strong>
+        <p>Позвоните — ответим сразу.</p>
+        <a href="tel:+375000000000" class="btn btn--primary">+375 (00) 000-00-00</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ОТЗЫВЫ -->
-    <section id="reviews" class="section">
-        <div class="container">
-            <h2 class="section__title">Отзывы</h2>
-            <div class="reviews">
-                <blockquote class="review">
-                    <p>«Разгружали фуру с мебелью. Работали быстро, ничего не поцарапали, всю упаковку вывезли с собой. Рекомендую.»</p>
-                    <footer>— Андрей, Минск</footer>
-                </blockquote>
-                <blockquote class="review">
-                    <p>«Выносили мусор после ремонта. Приехали в тот же день, за 3 часа вычистили всю квартиру. Цена — как договорились.»</p>
-                    <footer>— Ольга, Боровляны</footer>
-                </blockquote>
-                <blockquote class="review">
-                    <p>«Поднимали пианино на 5-й этаж без лифта. Справились вчетвером, ни одной вмятины. Буду обращаться ещё.»</p>
-                    <footer>— Сергей, Минск</footer>
-                </blockquote>
-            </div>
-        </div>
-    </section>
+<section id="reviews" class="section">
+  <div class="container">
+    <h2 class="section__title">Отзывы</h2>
+    <div class="reviews">
+      <blockquote class="review"><p>«Разгружали фуру с мебелью. Работали быстро, ничего не поцарапали, всю упаковку вывезли с собой. Рекомендую.»</p><footer>— Андрей, Минск</footer></blockquote>
+      <blockquote class="review"><p>«Выносили мусор после ремонта. Приехали в тот же день, за 3 часа вычистили всю квартиру. Цена — как договорились.»</p><footer>— Ольга, Боровляны</footer></blockquote>
+      <blockquote class="review"><p>«Поднимали пианино на 5-й этаж без лифта. Справились вчетвером, ни одной вмятины. Буду обращаться ещё.»</p><footer>— Сергей, Минск</footer></blockquote>
+    </div>
+  </div>
+</section>
 
-    <!-- ПРЕИМУЩЕСТВА -->
-    <section class="section section--alt">
-        <div class="container">
-            <h2 class="section__title">Почему нас выбирают</h2>
-            <div class="benefits">
-                <div class="benefit">
-                    <div class="benefit__icon">✓</div>
-                    <h3>Без посредников</h3>
-                    <p>Работаем своей командой, не через диспетчеров.</p>
-                </div>
-                <div class="benefit">
-                    <div class="benefit__icon">✓</div>
-                    <h3>Свой инструмент</h3>
-                    <p>Тележка, стрейч-плёнка, одеяла, ремни — всё с собой.</p>
-                </div>
-                <div class="benefit">
-                    <div class="benefit__icon">✓</div>
-                    <h3>Аккуратно</h3>
-                    <p>Не бьём, не царапаем. Отвечаем за сохранность вещей.</p>
-                </div>
-                <div class="benefit">
-                    <div class="benefit__icon">✓</div>
-                    <h3>В срок</h3>
-                    <p>Приезжаем в оговорённое время. Не подводим.</p>
-                </div>
-                <div class="benefit">
-                    <div class="benefit__icon">✓</div>
-                    <h3>Физлицам и компаниям</h3>
-                    <p>Работаем разово и по договору. Есть документы.</p>
-                </div>
-                <div class="benefit">
-                    <div class="benefit__icon">✓</div>
-                    <h3>Честная цена</h3>
-                    <p>Называем до начала работ. Никаких «плюс за сложность».</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">Почему нас выбирают</h2>
+    <div class="benefits">
+      <div class="benefit"><div class="benefit__icon">✓</div><h3>Без посредников</h3><p>Работаем своей командой, не через диспетчеров.</p></div>
+      <div class="benefit"><div class="benefit__icon">✓</div><h3>Свой инструмент</h3><p>Тележка, стрейч-плёнка, одеяла, ремни — всё с собой.</p></div>
+      <div class="benefit"><div class="benefit__icon">✓</div><h3>Аккуратно</h3><p>Не бьём, не царапаем. Отвечаем за сохранность вещей.</p></div>
+      <div class="benefit"><div class="benefit__icon">✓</div><h3>В срок</h3><p>Приезжаем в оговорённое время. Не подводим.</p></div>
+      <div class="benefit"><div class="benefit__icon">✓</div><h3>Физлицам и компаниям</h3><p>Работаем разово и по договору. Есть документы.</p></div>
+      <div class="benefit"><div class="benefit__icon">✓</div><h3>Честная цена</h3><p>Называем до начала работ. Никаких «плюс за сложность».</p></div>
+    </div>
+  </div>
+</section>
 
-    <!-- ЗАЯВКА -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section__title">Оставить заявку</h2>
-            <p class="section__subtitle">Перезвоним в течение 15 минут и назовём точную цену</p>
-            <form class="form" action="#" method="post">
-                <div class="form__row">
-                    <label>
-                        <span>Ваше имя</span>
-                        <input type="text" name="name" placeholder="Как к вам обращаться" required>
-                    </label>
-                    <label>
-                        <span>Телефон</span>
-                        <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
-                    </label>
-                </div>
-                <label>
-                    <span>Что нужно сделать</span>
-                    <textarea name="message" rows="4" placeholder="Например: разгрузить фуру с мебелью, 15 м³, сегодня вечером" required></textarea>
-                </label>
-                <div class="form__row">
-                    <label>
-                        <span>Когда</span>
-                        <select name="when">
-                            <option>Как можно скорее</option>
-                            <option>Сегодня</option>
-                            <option>Завтра</option>
-                            <option>В течение недели</option>
-                            <option>По договорённости</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span>Адрес (необязательно)</span>
-                        <input type="text" name="address" placeholder="Район или адрес">
-                    </label>
-                </div>
-                <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
-                <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
-            </form>
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="section__title">Оставить заявку</h2>
+    <p class="section__subtitle">Перезвоним в течение 15 минут и назовём точную цену</p>
+    <form class="form" id="leadForm">
+      <div class="form__row">
+        <label><span>Ваше имя</span><input type="text" name="name" placeholder="Как к вам обращаться" required></label>
+        <label><span>Телефон</span><input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required></label>
+      </div>
+      <label><span>Что нужно сделать</span><textarea name="message" rows="4" placeholder="Например: разгрузить фуру с мебелью, 15 м³, сегодня вечером" required></textarea></label>
+      <div class="form__row">
+        <label><span>Когда</span>
+          <select name="when">
+            <option>Как можно скорее</option>
+            <option>Сегодня</option>
+            <option>Завтра</option>
+            <option>В течение недели</option>
+            <option>По договорённости</option>
+          </select>
+        </label>
+        <label><span>Адрес (необязательно)</span><input type="text" name="address" placeholder="Район или адрес"></label>
+      </div>
+      <label class="form__check">
+        <input type="checkbox" name="agree" required>
+        <span>Я согласен(на) на обработку персональных данных и принимаю <a href="#" id="privacyLink">политику конфиденциальности</a>.</span>
+      </label>
+      <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+    </form>
 
-            <div class="contacts">
-                <a href="tel:+375000000000" class="contacts__item">
-                    <span class="contacts__label">Телефон</span>
-                    <span class="contacts__value">+375 (00) 000-00-00</span>
-                </a>
-                <a href="https://wa.me/375000000000" class="contacts__item">
-                    <span class="contacts__label">WhatsApp</span>
-                    <span class="contacts__value">+375 (00) 000-00-00</span>
-                </a>
-                <a href="https://t.me/username" class="contacts__item">
-                    <span class="contacts__label">Telegram</span>
-                    <span class="contacts__value">@username</span>
-                </a>
-            </div>
-        </div>
-    </section>
+    <div class="contacts">
+      <a href="tel:+375000000000" class="contacts__item"><span class="contacts__label">Телефон</span><span class="contacts__value">+375 (00) 000-00-00</span></a>
+      <a href="https://wa.me/375000000000" class="contacts__item"><span class="contacts__label">WhatsApp</span><span class="contacts__value">+375 (00) 000-00-00</span></a>
+      <a href="https://t.me/username" class="contacts__item"><span class="contacts__label">Telegram</span><span class="contacts__value">@username</span></a>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<!-- ПОДВАЛ -->
 <footer class="footer">
-    <div class="container footer__inner">
-        <p>© 2026 Грузчики.by · Работаем по Минску и области</p>
-        <p><a href="privacy.html">Политика конфиденциальности</a></p>
-    </div>
+  <div class="container footer__inner">
+    <p>© 2026 Грузчики.by · Работаем по Минску и области</p>
+    <p><a id="privacyLinkFooter">Политика конфиденциальности</a></p>
+  </div>
 </footer>
 
-<script src="js/main.js"></script>
+<!-- МОДАЛКА: политика конфиденциальности -->
+<div class="modal" id="privacyModal">
+  <div class="modal__content">
+    <button class="modal__close" id="privacyClose" aria-label="Закрыть">×</button>
+    <h2>Политика конфиденциальности</h2>
+    <p>Настоящая политика описывает порядок обработки персональных данных пользователей сайта.</p>
+
+    <h3>1. Какие данные мы собираем</h3>
+    <p>Через форму заявки мы получаем: имя, телефон, описание задачи, желаемое время и адрес (если указан).</p>
+
+    <h3>2. Зачем мы их собираем</h3>
+    <ul>
+      <li>чтобы связаться с вами по заявке;</li>
+      <li>чтобы рассчитать стоимость и согласовать время работ;</li>
+      <li>чтобы выполнить заказ и подтвердить его выполнение.</li>
+    </ul>
+
+    <h3>3. Кому передаются данные</h3>
+    <p>Данные не передаются третьим лицам, кроме случаев, прямо предусмотренных законодательством.</p>
+
+    <h3>4. Хранение и защита</h3>
+    <p>Данные хранятся не дольше, чем это необходимо для выполнения заказа и исполнения требований закона. Доступ к ним имеют только исполнитель и, при необходимости, бухгалтер.</p>
+
+    <h3>5. Ваши права</h3>
+    <p>Вы можете отозвать согласие на обработку данных в любой момент — для этого напишите нам в WhatsApp или Telegram, указанные на сайте.</p>
+
+    <h3>6. Cookies</h3>
+    <p>Сайт не использует сторонние системы аналитики и не устанавливает cookies для отслеживания пользователей.</p>
+
+    <h3>7. Контакты</h3>
+    <p>По вопросам обработки данных: <a href="tel:+375000000000" style="color:var(--accent-dark);font-weight:600">+375 (00) 000-00-00</a></p>
+  </div>
+</div>
+
+<script>
+// Мобильное меню
+(function(){
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  if(!burger || !nav) return;
+  burger.addEventListener('click', function(){
+    nav.classList.toggle('nav--open');
+  });
+  nav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      nav.classList.remove('nav--open');
+    });
+  });
+})();
+
+// Модалка политики
+(function(){
+  var modal = document.getElementById('privacyModal');
+  var openers = [document.getElementById('privacyLink'), document.getElementById('privacyLinkFooter')];
+  var closer = document.getElementById('privacyClose');
+  if(!modal) return;
+
+  function open(e){ if(e) e.preventDefault(); modal.classList.add('modal--open'); document.body.style.overflow='hidden'; }
+  function close(){ modal.classList.remove('modal--open'); document.body.style.overflow=''; }
+
+  openers.forEach(function(el){ if(el) el.addEventListener('click', open); });
+  if(closer) closer.addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
+
+// Отправка формы в WhatsApp
+(function(){
+  var form = document.getElementById('leadForm');
+  if(!form) return;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    var text =
+      'Заявка с сайта:\n\n' +
+      'Имя: ' + (data.get('name')||'') + '\n' +
+      'Телефон: ' + (data.get('phone')||'') + '\n' +
+      'Что нужно: ' + (data.get('message')||'') + '\n' +
+      'Когда: ' + (data.get('when')||'') + '\n' +
+      'Адрес: ' + (data.get('address')||'—');
+
+    // Замените номер на реальный WhatsApp
+    var whatsapp = '375000000000';
+    window.open('https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(text), '_blank');
+  });
+})();
+</script>
+
 </body>
 </html>
