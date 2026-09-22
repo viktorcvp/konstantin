@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Погрузки, разгрузки, вынос мусора и подъём материала. Работаем по Минску и области. Приезжаем в течение часа. Точная цена до начала работ.">
+    <meta name="keywords" content="грузчики, погрузка, разгрузка, вынос мусора, подъём материала, такелаж, Минск">
+    <meta name="author" content="Константин">
+
+    <meta property="og:title" content="Грузчики — погрузка, разгрузка, вынос мусора">
+    <meta property="og:description" content="Быстро, аккуратно, без повреждений. Работаем по городу и области.">
+    <meta property="og:type" content="website">
+
+    <title>Грузчики — погрузка, разгрузка, вынос мусора</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+    <div class="container header__inner">
+        <a href="#" class="header__logo">
+            <span class="logo-mark">Г</span>
+            <span>Грузчики<span class="logo-accent">.</span>by</span>
+        </a>
+        <nav class="nav" id="nav">
+            <a href="#services">Услуги</a>
+            <a href="#how">Как работаем</a>
+            <a href="#prices">Цены</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contact" class="nav__cta">Заказать</a>
+        </nav>
+        <a href="tel:+375000000000" class="header__phone">+375 (00) 000-00-00</a>
+        <button class="burger" id="burger" aria-label="Меню">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<main>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
+        <div class="container hero__inner">
+            <div class="hero__text">
+                <div class="hero__badge">Работаем по Минску и области</div>
+                <h1>Погрузки, разгрузки, вынос мусора — <span class="accent">быстро и аккуратно</span></h1>
+                <p>Приезжаем в течение часа. Свой инструмент и упаковка. Точную цену называем до начала работ — никаких доплат на месте.</p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary">Заказать грузчиков</a>
+                    <a href="tel:+375000000000" class="btn btn--ghost">Позвонить</a>
+                </div>
+                <ul class="hero__facts">
+                    <li><strong>2–4 ч</strong><span>средняя задача</span></li>
+                    <li><strong>с 8:00 до 22:00</strong><span>без выходных</span></li>
+                    <li><strong>0 повреждений</strong><span>аккуратно упакуем</span></li>
+                </ul>
+            </div>
+            <div class="hero__image" aria-hidden="true">
+                <div class="hero__photo"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section__title">Услуги</h2>
+            <p class="section__subtitle">Работаем с физлицами и компаниями. Разово и по договору.</p>
+            <div class="cards">
+                <article class="card">
+                    <div class="card__icon">📦</div>
+                    <h3 class="card__title">Погрузка</h3>
+                    <p class="card__text">Квартиры, офисы, склады, магазины. Аккуратно упакуем и поднимем.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">🚚</div>
+                    <h3 class="card__title">Разгрузка</h3>
+                    <p class="card__text">Фуры, контейнеры, газели. Быстро, без простоев машины.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">🗑️</div>
+                    <h3 class="card__title">Вынос мусора</h3>
+                    <p class="card__text">После ремонта, переезда, стройки. С вывозом на свалку.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">⬆️</div>
+                    <h3 class="card__title">Подъём материала</h3>
+                    <p class="card__text">На этаж, в квартиру, в офис. Мебель, стройматериалы, техника.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">🏠</div>
+                    <h3 class="card__title">Переезды</h3>
+                    <p class="card__text">Квартирные и офисные. Полный цикл: упаковать, перевезти, расставить.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">🏗️</div>
+                    <h3 class="card__title">Такелаж</h3>
+                    <p class="card__text">Тяжёлые и негабаритные предметы: пианино, сейфы, станки.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК РАБОТАЕМ -->
+    <section id="how" class="section section--alt">
+        <div class="container">
+            <h2 class="section__title">Как работаем</h2>
+            <p class="section__subtitle">Четыре простых шага — от заявки до уборки после работ</p>
+            <ol class="steps">
+                <li class="step">
+                    <span class="step__num">1</span>
+                    <h3 class="step__title">Заявка</h3>
+                    <p class="step__text">Звонок или форма на сайте. Обсуждаем задачу, адрес, время.</p>
+                </li>
+                <li class="step">
+                    <span class="step__num">2</span>
+                    <h3 class="step__title">Расчёт</h3>
+                    <p class="step__text">Называем цену сразу, без сюрпризов. Согласовываем дату и время.</p>
+                </li>
+                <li class="step">
+                    <span class="step__num">3</span>
+                    <h3 class="step__title">Приезд</h3>
+                    <p class="step__text">В оговорённое время, со своим инструментом и упаковкой.</p>
+                </li>
+                <li class="step">
+                    <span class="step__num">4</span>
+                    <h3 class="step__title">Работа</h3>
+                    <p class="step__text">Аккуратно, быстро, с уборкой за собой. Принимаете работу — оплачиваете.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ЦЕНЫ -->
+    <section id="prices" class="section">
+        <div class="container">
+            <h2 class="section__title">Цены</h2>
+            <p class="section__subtitle">Прозрачно. Точную стоимость называем до начала работ.</p>
+            <div class="price-grid">
+                <div class="price-card">
+                    <div class="price-card__label">Час работы одного грузчика</div>
+                    <div class="price-card__value">от 25 BYN</div>
+                </div>
+                <div class="price-card">
+                    <div class="price-card__label">Минимальный заказ</div>
+                    <div class="price-card__value">2 часа</div>
+                </div>
+                <div class="price-card">
+                    <div class="price-card__label">Вынос мусора</div>
+                    <div class="price-card__value">от 30 BYN / м³</div>
+                </div>
+                <div class="price-card">
+                    <div class="price-card__label">Подъём на этаж</div>
+                    <div class="price-card__value">от 5 BYN / этаж</div>
+                </div>
+                <div class="price-card">
+                    <div class="price-card__label">Выезд за город</div>
+                    <div class="price-card__value">1 BYN / км</div>
+                </div>
+                <div class="price-card price-card--accent">
+                    <div class="price-card__label">Работа с юрлицами</div>
+                    <div class="price-card__value">по договору</div>
+                </div>
+            </div>
+            <p class="price-note">Наценок «за сложность» на месте не делаем. Всё, что обсудили — по той цене и работаем.</p>
+        </div>
+    </section>
+
+    <!-- ЗОНА РАБОТЫ -->
+    <section class="section section--alt">
+        <div class="container">
+            <h2 class="section__title">Зона работы</h2>
+            <p class="section__subtitle">Выезжаем по городу и в радиусе 50 км от него</p>
+            <div class="area">
+                <ul class="area__list">
+                    <li>Минск — все районы</li>
+                    <li>Боровляны, Колодищи, Смолевичи</li>
+                    <li>Фаниполь, Дзержинск, Столбцы</li>
+                    <li>Логойск, Смолевичский район</li>
+                    <li>Заславль, Ратомка, Ждановичи</li>
+                    <li>Дальше — по договорённости</li>
+                </ul>
+                <div class="area__note">
+                    <strong>Не уверены, работаем ли в вашем районе?</strong>
+                    <p>Позвоните — ответим сразу.</p>
+                    <a href="tel:+375000000000" class="btn btn--primary">+375 (00) 000-00-00</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2 class="section__title">Отзывы</h2>
+            <div class="reviews">
+                <blockquote class="review">
+                    <p>«Разгружали фуру с мебелью. Работали быстро, ничего не поцарапали, всю упаковку вывезли с собой. Рекомендую.»</p>
+                    <footer>— Андрей, Минск</footer>
+                </blockquote>
+                <blockquote class="review">
+                    <p>«Выносили мусор после ремонта. Приехали в тот же день, за 3 часа вычистили всю квартиру. Цена — как договорились.»</p>
+                    <footer>— Ольга, Боровляны</footer>
+                </blockquote>
+                <blockquote class="review">
+                    <p>«Поднимали пианино на 5-й этаж без лифта. Справились вчетвером, ни одной вмятины. Буду обращаться ещё.»</p>
+                    <footer>— Сергей, Минск</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section class="section section--alt">
+        <div class="container">
+            <h2 class="section__title">Почему нас выбирают</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit__icon">✓</div>
+                    <h3>Без посредников</h3>
+                    <p>Работаем своей командой, не через диспетчеров.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">✓</div>
+                    <h3>Свой инструмент</h3>
+                    <p>Тележка, стрейч-плёнка, одеяла, ремни — всё с собой.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">✓</div>
+                    <h3>Аккуратно</h3>
+                    <p>Не бьём, не царапаем. Отвечаем за сохранность вещей.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">✓</div>
+                    <h3>В срок</h3>
+                    <p>Приезжаем в оговорённое время. Не подводим.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">✓</div>
+                    <h3>Физлицам и компаниям</h3>
+                    <p>Работаем разово и по договору. Есть документы.</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit__icon">✓</div>
+                    <h3>Честная цена</h3>
+                    <p>Называем до начала работ. Никаких «плюс за сложность».</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЗАЯВКА -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section__title">Оставить заявку</h2>
+            <p class="section__subtitle">Перезвоним в течение 15 минут и назовём точную цену</p>
+            <form class="form" action="#" method="post">
+                <div class="form__row">
+                    <label>
+                        <span>Ваше имя</span>
+                        <input type="text" name="name" placeholder="Как к вам обращаться" required>
+                    </label>
+                    <label>
+                        <span>Телефон</span>
+                        <input type="tel" name="phone" placeholder="+375 (__) ___-__-__" required>
+                    </label>
+                </div>
+                <label>
+                    <span>Что нужно сделать</span>
+                    <textarea name="message" rows="4" placeholder="Например: разгрузить фуру с мебелью, 15 м³, сегодня вечером" required></textarea>
+                </label>
+                <div class="form__row">
+                    <label>
+                        <span>Когда</span>
+                        <select name="when">
+                            <option>Как можно скорее</option>
+                            <option>Сегодня</option>
+                            <option>Завтра</option>
+                            <option>В течение недели</option>
+                            <option>По договорённости</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>Адрес (необязательно)</span>
+                        <input type="text" name="address" placeholder="Район или адрес">
+                    </label>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+                <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+            </form>
+
+            <div class="contacts">
+                <a href="tel:+375000000000" class="contacts__item">
+                    <span class="contacts__label">Телефон</span>
+                    <span class="contacts__value">+375 (00) 000-00-00</span>
+                </a>
+                <a href="https://wa.me/375000000000" class="contacts__item">
+                    <span class="contacts__label">WhatsApp</span>
+                    <span class="contacts__value">+375 (00) 000-00-00</span>
+                </a>
+                <a href="https://t.me/username" class="contacts__item">
+                    <span class="contacts__label">Telegram</span>
+                    <span class="contacts__value">@username</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ПОДВАЛ -->
+<footer class="footer">
+    <div class="container footer__inner">
+        <p>© 2026 Грузчики.by · Работаем по Минску и области</p>
+        <p><a href="privacy.html">Политика конфиденциальности</a></p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
